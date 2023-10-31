@@ -1,0 +1,18 @@
+.main {
+  font-family: 'Kreon';
+  font-size: 6rem;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  flex: 1;
+  background-color: #000;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .main {
+    font-size: 4rem;
+  }
+}
