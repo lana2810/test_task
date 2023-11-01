@@ -1,31 +1,27 @@
-import { FC } from 'react';
+// @ts-nocheck
 import Select, { SingleValue } from 'react-select';
-import { useContent } from '../../useContent';
-import { options, OptionType } from '../../constans';
+import { useCurrencySelector, useAppDispatch } from '../../redux/store';
+import { setActiveCurrency } from '../../redux/currencySlice';
 
-type SelectedFieldProps = {
-  setIsOpen: (isOpen: boolean) => void;
-};
+export const SelectedField = () => {
+  const dispatch = useAppDispatch();
+  const { allCurrency, activeCurrency } = useCurrencySelector();
 
-export const SelectedField: FC<SelectedFieldProps> = ({ setIsOpen }) => {
-  const { current, setCurrent } = useContent();
-  const onChange = (newValue: SingleValue<OptionType>) => {
+  const options = allCurrency.map((item) => {
+    return { value: item.name, label: item.id };
+  });
+  const onChange = (newValue: SingleValue<string>) => {
     if (newValue !== null) {
-      setCurrent(newValue);
+      const newCurrentCurrency = allCurrency.find(
+        (item) => item.id === newValue.label
+      );
+      dispatch(setActiveCurrency(newCurrentCurrency));
     }
-  };
-  const handleMenuOpen = () => {
-    setIsOpen(true);
-  };
-  const handleMenuClose = () => {
-    setIsOpen(false);
   };
   return (
     <Select
-      value={current}
+      defaultValue={activeCurrency.id}
       options={options}
-      onMenuOpen={handleMenuOpen}
-      onMenuClose={handleMenuClose}
       onChange={onChange}
       classNamePrefix="custom-select"
     />

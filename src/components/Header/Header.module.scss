@@ -1,33 +1,8 @@
-@keyframes paddingUp {
-  0% {
-    padding-bottom: 0px;
-  }
-  100% {
-    padding-bottom: 12.5rem;
-  }
-}
-@keyframes paddingDown {
-  0% {
-    padding-bottom: 12.5rem;
-  }
-  100% {
-    padding-bottom: 0px;
-  }
-}
-.move_up {
-  animation-name: paddingUp;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-}
-.move_down {
-  animation-name: paddingDown;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-}
 .header {
   background-color: #fff;
   padding-top: 1.5rem;
   padding-left: 2.75rem;
+  flex: 10%;
 }
 .wrapper_titles {
   display: flex;
