@@ -18,9 +18,11 @@ export const SelectedField = () => {
       dispatch(setActiveCurrency(newCurrentCurrency));
     }
   };
+  if (!activeCurrency || Object.keys(activeCurrency).length === 0)
+    return <span>...Loading</span>;
   return (
     <Select
-      defaultValue={activeCurrency.id}
+      value={{ value: activeCurrency.id, label: activeCurrency.id }}
       options={options}
       onChange={onChange}
       classNamePrefix="custom-select"
