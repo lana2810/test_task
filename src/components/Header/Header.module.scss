@@ -4,21 +4,25 @@
   padding-left: 2.75rem;
   flex: 10%;
 }
+
 .wrapper_titles {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
+
 .title_main {
   font-family: 'Kreon';
   font-size: 6rem;
 }
+
 .sub_title {
   font-family: 'Kreon-Light';
   font-size: 1.25rem;
   width: 5.5rem;
   word-wrap: break-word;
 }
+
 .wrapper_select {
   font-family: 'Kreon-Light';
   font-size: 1.125rem;
@@ -29,6 +33,7 @@
   position: relative;
   z-index: 2;
 }
+
 .wrapper_select::after {
   content: '';
   position: absolute;
@@ -40,6 +45,7 @@
   background-repeat: no-repeat;
   pointer-events: none;
 }
+
 @media (max-width: 768px) {
   .wrapper_titles {
     justify-content: center;

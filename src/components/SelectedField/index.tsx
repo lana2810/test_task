@@ -1,8 +1,11 @@
-// @ts-nocheck
 import Select, { SingleValue } from 'react-select';
 import { useCurrencySelector, useAppDispatch } from '../../redux/store';
 import { setActiveCurrency } from '../../redux/currencySlice';
 
+type SelectType = {
+  value: string;
+  label: string;
+};
 export const SelectedField = () => {
   const dispatch = useAppDispatch();
   const { allCurrency, activeCurrency } = useCurrencySelector();
@@ -10,7 +13,7 @@ export const SelectedField = () => {
   const options = allCurrency.map((item) => {
     return { value: item.name, label: item.id };
   });
-  const onChange = (newValue: SingleValue<string>) => {
+  const onChange = (newValue: SingleValue<SelectType>) => {
     if (newValue !== null) {
       const newCurrentCurrency = allCurrency.find(
         (item) => item.id === newValue.label

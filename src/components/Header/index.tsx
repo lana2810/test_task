@@ -1,5 +1,6 @@
-import st from './Header.module.scss';
 import { SelectedField } from '../SelectedField';
+
+import st from './Header.module.scss';
 
 export const Header = () => {
   return (
